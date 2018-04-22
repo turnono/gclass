@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+
+
+
+  <form [formGroup]="newCourseForm">
+
+      <h2>Create class</h2>
+
+    <ion-item>
+
+      <ion-input [formControl]="newCourseForm.controls['name']" placeholder="Class name (required)" type="text"></ion-input>
+    </ion-item>
+
+    <div *ngIf="!newCourseForm.controls['name'].valid && newCourseForm.controls['name'].dirty" class="validator-error">
+      Please enter a valid course name!
+    </div>
+
+   <!-- <ion-item>
+      <ion-input [formControl]="newCourseForm.controls['section']" type="text" placeholder="Section"></ion-input>
+    </ion-item>
+-->
+    <ion-row>
+      <ion-col text-center>
+        <button ion-button block color="secondary" [disabled]="!newCourseForm.valid" (click)="createCourse()">
+          Create
+        </button>
+      </ion-col>
+    </ion-row>
+
+  </form>
+
+  <button ion-button secondary id="authorize-button" (click)="signIn()">signin</button>
+  <button ion-button secondary id="signout-button" (click)="signOut()">signout</button>
+  <button ion-button secondary (click)="showCourses()">show</button>
+  <button ion-button primary (click)="createCourseWork()">Create an assignment</button>
+
+
+</ion-content>
